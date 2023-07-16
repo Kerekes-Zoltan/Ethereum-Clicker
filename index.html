@@ -1,0 +1,301 @@
+<meta charset="UTF-8">
+<script>
+    function update(){
+        document.getElementById('text').value=ethereumcount/10;
+        document.getElementById('text2').value=money;
+        document.title=ethereumcount/10+" Ethereum";
+        document.getElementById('dbMunkas').innerHTML=autoMunkas+" muncitori!";
+        document.getElementById('arMunkas').innerHTML="$"+arMunk;
+        document.getElementById('dbKartya').innerHTML=dbbKartya+" placa video!";
+        document.getElementById('arKartya').innerHTML="$"+arKartya;
+        document.getElementById('dbHuto').innerHTML="Cooler "+dbbHuto;
+        document.getElementById('arHuto').innerHTML="$"+arHuto;
+        document.getElementById('dbGyar').innerHTML="Fabrica "+dbbGyar;
+        document.getElementById('arGyar').innerHTML="$"+arGyar;
+        document.getElementById('arComp').innerHTML="$"+arComp;
+        document.getElementById('eps').innerHTML="Ai "+(((autoMunkas)+(autoKartya)+(autoHuto)+(autoGyar))/10)+" Ethereum"; 
+        document.getElementById('nMunk').innerText="Muncitor";
+        document.getElementById('nVid').innerText="Placa Video";
+        document.getElementById('nHut').innerText="Coller";
+        document.getElementById('nGy').innerText="Fabrica";
+        document.getElementById('nSzp').innerHTML="<span style='color:#FF0000'>Gaming PC</span>";
+        sessionStorage.setItem("money", money);
+        sessionStorage.setItem("munkas", autoMunkas);
+        sessionStorage.setItem("kartya", dbbKartya);
+        sessionStorage.setItem("huto", dbbHuto);
+        sessionStorage.setItem("gyar", dbbGyar);
+    }
+    function end(){
+        document.getElementById('text').value="Sfarsit";
+        document.title="Sfarsit";
+    }
+var ethereumcount=0;
+var money=0;
+var autoMunkas=0;
+var autoKartya=0;
+var autoHuto=0;
+var autoGyar=0;
+var arMunk=10;
+var arKartya=100;
+var dbbKartya=0;
+var arHuto=4000;
+var dbbHuto=0;
+var arGyar=10000;
+var dbbGyar=0;
+var arComp=100000;
+function timer(){
+    ethereumcount=ethereumcount+autoMunkas;
+    ethereumcount=ethereumcount+autoKartya;
+    ethereumcount=ethereumcount+autoHuto;
+    ethereumcount=ethereumcount+autoGyar;
+    update()
+}
+    setInterval(timer,1000)
+</script>
+<html>
+<head><title>Ethereum Clicker</title></head>
+    <style>
+    p.penzek{
+        color: darkgreen;
+        font-weight: bold;}
+    p.cmp{
+        color: red;
+        font-weight: bold;}
+    button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+        outline:none;}
+    p.alap {
+        line-height: 5;
+        font-weight: bold;
+        color: white;}
+    input.et {
+        text-align: center;
+        border: none;
+        background-color: Transparent;
+        color:cornsilk;
+        font-weight: bold;
+        font-size: 20;}
+    input.penz {
+        text-align: center;
+        border: none;
+        background-color: Transparent;
+        color:darkgreen;
+        font-weight: bold;
+        font-size: 20;}
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      transition: opacity 500ms;
+      visibility: hidden;
+      opacity: 0;}
+    .overlay:target {
+      visibility: visible;
+      opacity: 1;}
+    .popup {
+      margin: 200px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 5px;
+      width: 45%;
+      position: relative;
+      transition: all 5s ease-in-out;}
+    .popup h2 {
+      margin-top: 0;
+      color: #333;
+      font-family: Tahoma, Arial, sans-serif;}
+    .popup .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      transition: all 200ms;
+      font-size: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #333;}
+    .popup .close:hover {
+        color: #06D85F;}
+    .popup .content {
+    max-height: 30%;
+    overflow: auto;}
+    </style>
+    <body background=hatter.jpg>
+        <p align="center"><font face="impact" size="6" color="black">ETHEREUM CLICKER</font></p>
+        <p  class="alap" align="center" id="eps">Ai 0 Ethereum</p>
+        <p align="center"><a align="center" onClick="add()"><img src="button.png"></a></p>
+        <p align="center"><button><a onClick="atvalt()"><font face="impact" size="5" color="black">Schimb</font></a></button></p>
+        <br>
+        <p align="center"><img align="center" src="et.png"><input class="et" type="text" id="text" readonly></p>
+        <p align="center"><img align="center" src="penz.png"><input class="penz" type="text" id="text2" readonly></p>
+        <audio id="audio1" src="atvalt.wav"></audio>
+        <audio id="audio2" src="click.wav"></audio>
+        <audio id="audio3" src="buy.wav"></audio>
+        <br><br>
+        <br><br>
+        <br><br>
+        <table style="width:100%">
+        <tr>
+            <th><p align="center" id="nMunk">Muncitor</p></th>
+            <th><p align="center" id="nVid">PLaca Video</p></th>
+            <th><p align="center" id="nHut">Cooler</p></th>
+            <th><p align="center" id="nGy">Fabrica</p></th>
+            <th><p align="center" id="nSzp"><font color="red">Gaming PC</font></p></th>
+        </tr>
+        <tr>
+            <td><p align="center"><button class="unstyled-button"><a onClick="buyMunkas()"><img src=worker.png></a></button></p></td>
+            <td><p align="center"><button class="unstyled-button"><a onClick="buyKartya()"><img src=kartya.png></a></button></p></td>
+            <td><p align="center"><button class="unstyled-button"><a onClick="buyHuto()"><img src=huto.png></a></button></p></td>
+            <td><p align="center"><button class="unstyled-button"><a onClick="buyGyar()"><img src=gyar.png></a></button></p></td>
+            <td><p align="center"><button class="unstyled-button"><a onClick="buyComp()"><img src=computer.png></a></button></p></td>
+        </tr>
+        <tr>
+            <td><p class="penzek" align="center" id="arMunkas">$10</p></td>
+            <td><p class="penzek" align="center" id="arKartya">$100</p></td>
+            <td><p class="penzek" align="center" id="arHuto">$4000</p></td>
+            <td><p class="penzek" align="center" id="arGyar">$10000</p></td>
+            <td><p class="cmp" align="center" id="arComp">$100000</p></td>
+        </tr>
+        <tr>
+            <td><p align="center" id="dbMunkas">0 muncitori!</p></td>
+            <td><p align="center" id="dbKartya">0 placa video!</p></td>
+            <td><p align="center" id="dbHuto">0 cooler</p></td>
+            <td><p align="center" id="dbGyar">Fabrici 0</p></td>
+        </tr>
+        </table>
+        <br>
+        <table style="width:100%">
+        <tr>
+            <div class="box">
+                <td><p align="left"><a class="button" href="#segitseg"><img src="kerd.png"></a></p></td>
+            </div>
+            <div class="box">
+                <td><p align="right"><button><a onClick="ebay()"><img src="shop.png"></a></button></p></td>
+            </div>
+        </tr>
+        </table>
+        <div id="segitseg" class="overlay">
+	       <div class="popup">
+		      <h2>Instructioni</h2>
+		      <a class="close" href="#">&times;</a>
+		  <div class="content">
+			• Apasand butonul <img align="center" src="et.png"> incepeti minatul de cripto moneda ETHEREUM. Puteti observa jos cat ati minat!
+              <br>
+            • Butonul <font face="impact" size="4" color="black">Schimb</font> va converteste moneda farmata in bani icon ul asta  <img align="center" src="penz.png"> il reprezinta.
+              <br>
+            • Prin ajutorul banilor stransi puteti cumpara <b>Ajutoare</b>, acestia va usureaza treaba, dar cu fiecare ajutor cumparat v-a cresti si pretul achizionarii unui nou.
+              <br>
+              <br>
+              • <b>Scopul jocului</b> este de a cumpara un<font color="red"><b>Gaming Pc</b></font>, astfel ajungeti la nivelul urmator :-).
+              <br>
+              • Apasand butonul <img align="center" src="shop2.png"> ne trimite la cosul cu cumparaturi, aici putem vedea cati bani au ramas.
+		  </div>
+	       </div>
+        </div>
+        <script>
+        function add(){
+            var audio2 = document.getElementById("audio2");
+            audio2.play();
+            ethereumcount=ethereumcount+1;
+            document.getElementById('text').value=ethereumcount/10;
+            document.title=ethereumcount/10+" Ethereum";
+        }
+        function atvalt(){
+            var audio = document.getElementById("audio1");
+            if (ethereumcount>0){
+            audio.play();
+            money=ethereumcount*50+money;
+            ethereumcount=0;
+            document.getElementById('text2').value=money;
+            document.getElementById('text').value=ethereumcount/10;
+            document.title=ethereumcount/10+" Ethereum";
+            }
+        }
+        function buyMunkas(){
+            var audio3 = document.getElementById("audio3");
+            if (money>=arMunk){
+                audio3.play();
+                money=money-arMunk;
+                ethereumcount=ethereumcount+(autoMunkas+1);
+                autoMunkas=autoMunkas+1;
+                update()
+                document.getElementById('text2').value=money;
+                arMunk=arMunk+500;
+            }
+            else{
+                document.getElementById('nMunk').innerHTML="<span style='color:#FF0000'>Bani insuficienti!</span>";
+            }
+        }
+        function buyKartya(){
+            var audio3 = document.getElementById("audio3");
+            if (money>=arKartya){
+                audio3.play();
+                money=money-arKartya;
+                ethereumcount=ethereumcount+(autoKartya+100);
+                autoKartya=autoKartya+10;
+                update()
+                document.getElementById('text2').value=money;
+                arKartya=arKartya+20000;
+                dbbKartya=dbbKartya+1;
+            }
+            else{
+                document.getElementById('nVid').innerHTML="<span style='color:#FF0000'>Bani insuficienti!</span>";
+            }
+        }
+        function buyHuto(){
+            var audio3 = document.getElementById("audio3");
+            if (money>=arHuto){
+                audio3.play();
+                money=money-arHuto;
+                ethereumcount=ethereumcount+(autoHuto+300);
+                autoHuto=autoHuto+40;
+                update()
+                document.getElementById('text2').value=money;
+                arHuto=arHuto+137254;
+                dbbHuto=dbbHuto+1;
+            }
+            else{
+                document.getElementById('nHut').innerHTML="<span style='color:#FF0000'>Bani insuficienti!</span>";
+            }
+        }
+        function buyGyar(){
+            var audio3 = document.getElementById("audio3");
+            if (money>=arGyar){
+                audio3.play();
+                money=money-arGyar;
+                ethereumcount=ethereumcount+(autoGyar+1000);
+                autoGyar=autoGyar+100;
+                update()
+                document.getElementById('text2').value=money;
+                arGyar=arGyar+400000;
+                dbbGyar=dbbGyar+1;
+            }
+            else{
+                document.getElementById('nGy').innerHTML="<span style='color:#FF0000'>Bani insuficienti!</span>";
+            }
+        }
+        function buyComp(){
+            var audio3 = document.getElementById("audio3");
+            if (money>=arComp){
+                audio3.play();
+                money=money-arComp;
+                document.getElementById('text2').value=money;
+                end()
+                window.open("end.html","_self")
+            }
+            else{
+                document.getElementById('nSzp').innerHTML="<span style='color:#FF0000'>Bani insuficienti</span>";
+            }
+        }
+        function ebay(){
+            window.open("ebay.html")
+        }
+        </script>
+    </body>
+</html>

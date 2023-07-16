@@ -1,0 +1,98 @@
+<meta charset="UTF-8">
+<html>
+<head><title>eBay</title></head>
+<style>
+    button{
+    font-family: impact;
+    font-weight: bold;
+    font-size: 25;
+    }
+    .db {
+    font-size: 20;
+    font-weight: bold;
+    color: black;
+    }
+    .penz {
+    font-size: 25;
+    font-weight: bold;
+    color: forestgreen;
+    }
+    .ures {
+    font-size: 30;
+    font-weight: bold;
+    color: black
+    }
+    .alap {
+    padding-left: 17%;
+    }
+    .alap2 {
+    padding-left: 10%;
+    }
+</style>
+<body>
+<table style="width:100%">
+        <tr>
+            <td><p align="center"><img src="elogo.png"></p></td>
+            <td><img src="bar.png"></td>
+        </tr>
+</table>
+<table align="center" style="width:0%">
+        <tr>
+            <td><p align="center" class="penz">Bani: $</p></td>
+            <td><p class="penz" id="money"></p></td>
+        </tr>
+</table>
+<p id="ures" align="center" class="ures">Cos gol, cumpara ceva!</p>
+<table align="center" style="width:100%">
+        <tr id="t1">
+            <td class="alap"><p class="db" id="munkas"></p></td>
+            <td class="alap2"><img align="center" src="munkas.gif"></td>
+        </tr>
+        <tr id="t2">
+            <td class="alap"><p class="db" id="kartya"></p></td>
+            <td class="alap2"><img align="center" src="kartya.png"></td>
+        </tr>
+        <tr id="t3">
+            <td class="alap"><p class="db" id="huto"></p></td>
+            <td class="alap2"><img align="center" src="huto.png"></td>
+        </tr>
+        <tr id="t4">
+            <td class="alap"><p class="db" id="gyar"></p></td>
+            <td class="alap2"><img align="center" src="gyar.png"></td>
+        </tr>
+</table>
+    <script>
+    document.getElementById("money").innerHTML = sessionStorage.getItem("money");
+    document.getElementById("munkas").innerHTML = sessionStorage.getItem("munkas");
+    document.getElementById("kartya").innerHTML = sessionStorage.getItem("kartya");
+    document.getElementById("huto").innerHTML = sessionStorage.getItem("huto");
+    document.getElementById("gyar").innerHTML = sessionStorage.getItem("gyar");
+    </script>
+    <br>
+    <br>
+    <p align="center"><button><a onClick="vissza()">Inapoi</a></button></p>
+<script>
+    function vissza(){
+        window.close()
+    }
+    function valt(){
+        if (document.getElementById("munkas").innerHTML==0){
+            document.getElementById("t1").style.display="none";
+        }
+        else{document.getElementById("ures").style.display="none";}
+        if (document.getElementById("kartya").innerHTML==0){
+            document.getElementById("t2").style.display="none";
+        }
+        else{document.getElementById("ures").style.display="none";}
+        if (document.getElementById("huto").innerHTML==0){
+            document.getElementById("t3").style.display="none";
+        }
+        else{document.getElementById("ures").style.display="none";}
+        if (document.getElementById("gyar").innerHTML==0){
+            document.getElementById("t4").style.display="none";
+        }
+        else{document.getElementById("ures").style.display="none";}
+    }
+    window.onload = valt;
+</script>
+</body>
